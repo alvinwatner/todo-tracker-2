@@ -1,10 +1,10 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:todo_tracker/app/app.bottomsheets.dart';
-import 'package:todo_tracker/app/app.dialogs.dart';
 import 'package:todo_tracker/app/app.locator.dart';
 import 'package:todo_tracker/features/home/todos_repository.dart';
 import 'package:todo_tracker/models/todo.dart';
+import 'package:todo_tracker/ui/dialogs/todo_dialog/todo_dialog.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
@@ -29,7 +29,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> showAddTodoDialog() async {
     final dialogResponse = await _dialogService.showCustomDialog(
-      variant: DialogType.todoDialog,
+      variant: TodoDialog,
       title: 'Add Todo',
     );
 
@@ -42,7 +42,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> editTodo(Todo todo) async {
     final dialogResponse = await _dialogService.showCustomDialog(
-      variant: DialogType.todoDialog,
+      variant: TodoDialog,
       title: 'Edit Todo',
       data: todo,
     );

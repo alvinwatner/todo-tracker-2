@@ -33,7 +33,8 @@ class TodoItem extends StatelessWidget {
           ),
         ),
         subtitle: Column(
-          crossAlignment: CrossAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(todo.description),
             const SizedBox(height: 4),
